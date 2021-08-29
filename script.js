@@ -46,13 +46,13 @@ function playGame(e){
 }
 
 function getResult(){
-    if(playScore === 5){
+    if(playScore === 4){
         playScoreText.classList.add('winner');
         playScoreText.textContent = 'Player Wins!';
         compScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    }else if (compScore === 5){
+    }else if (compScore === 4){
         compScoreText.classList.add('winner');
         compScoreText.textContent = 'Computer Wins!';
         playScoreText.textContent = '';
