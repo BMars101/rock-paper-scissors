@@ -36,77 +36,60 @@ function computerTurn(){
     }
     computerChoice.textContent = compChoice;   
 }
-
-function playGame(e){
-    // console.log(e.target.textContent, playerPick, compChoice); 
-    computerTurn();
-    playerPick = e.target.innerHTML;
-    playerChoice.textContent = playerPick;  
-    getResult();
+function checkWinner(){
+   
 }
-
-function getResult(){
-    if(playScore === 4){
+function playGame(e){
+    
+    if(playScore === 5){
         playScoreText.classList.add('winner');
         playScoreText.textContent = 'Player Wins!';
         compScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    }else if (compScore === 4){
+    }else if (compScore === 5){
         compScoreText.classList.add('winner');
         compScoreText.textContent = 'Computer Wins!';
         playScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    } else {
+    }else {
+        console.log(e.target.textContent, playerPick, compChoice);
+        computerTurn();
+        playerPick = e.target.innerHTML;
+        playerChoice.textContent = playerPick;
+        getResult();  
+    }
+}
+
+function getResult(){
         switch(playerPick + compChoice){
-            case 'RockPaper':
-                compScore++;
-                compScoreText.textContent = compScore;
-                playScoreText.textContent = playScore;
-                break;
             case 'RockScissors':
-                playScore++;
-                playScoreText.textContent = playScore;
-                compScoreText.textContent = compScore;
-                break;
-            case 'RockRock':
-                playScoreText.textContent = 'Tie!';
-                compScoreText.textContent = 'Tie!';
-                break;
             case 'PaperRock':
-                playScore++;
-                playScoreText.textContent = playScore;
-                compScoreText.textContent = compScore;
-                break;
-            case 'PaperScissors':
-                compScore++;
-                compScoreText.textContent = compScore;
-                playScoreText.textContent = playScore;
-                break;
-            case 'PaperPaper':
-                playScoreText.textContent = 'Tie!';
-                compScoreText.textContent = 'Tie!';
-                break;
             case 'ScissorsPaper':
                 playScore++;
                 playScoreText.textContent = playScore;
                 compScoreText.textContent = compScore;
                 break;
             case 'ScissorsRock':
+            case 'RockPaper':
+            case 'PaperScissors':
                 compScore++;
                 compScoreText.textContent = compScore;
                 playScoreText.textContent = playScore;
                 break;
+            case 'PaperPaper':
+            case 'RockRock':
             case 'ScissorsScissors':
                 playScoreText.textContent = 'Tie!';
                 compScoreText.textContent = 'Tie!';
                 break;
             default:
                 console.log('default');
+            }
+        
         }
-    }
-}
+       
 
 resetBtn.addEventListener('click', function(){
     btnContainer.style.display = "grid";
