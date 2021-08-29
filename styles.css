@@ -1,0 +1,89 @@
+body {
+    background: lightcyan;
+    font-family: monospace;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+}
+h4{
+    font-size: 1.5em;
+    color: rgb(58, 105, 143);
+    font-weight: bold;
+}
+h5 {
+    font-size: 1.3em;
+    color: rgb(34, 147, 151);
+    font-weight: bold;
+}
+
+.btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+}
+.computer-score-container, .player-score-container {
+    display: grid;
+}
+.Rock, .Paper, .Scissors {
+    padding: 20px;
+    margin: 10px;
+    border-style: outset;
+    border: 3px solid rgb(235, 235, 30);
+    background: rgb(248, 248, 29);
+    color: rgb(233, 64, 168);
+    font-weight: bold;
+    font-size: 1.7em;
+    font-family: monospace;
+}
+.Rock:hover, .Paper:hover, .Scissors:hover{
+    cursor: pointer;
+    background-color:rgb(252, 255, 93);
+}
+.computer-container {
+    margin-left: 60px;
+}
+.game-container {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.image {
+    padding-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    border-radius: 50%;
+    
+}
+
+.player-container {
+    padding: 20px 60px auto 10px;;
+    margin-right: 120px;
+}
+.reset-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-style: outset;
+    border: 3px solid rgb(235, 235, 30);
+    background: rgb(248, 248, 29);
+    color: rgb(233, 64, 168);
+    font-weight: bold;
+    font-size: 1.7em;
+    font-family:monospace;
+}
+.winner {
+    font-weight: bold;
+    font-size:large;
+    color: rgb(233, 64, 168);
+}
