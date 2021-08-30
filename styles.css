@@ -24,6 +24,9 @@ h5 {
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
 }
+.score, .choice{
+    font-size: 1.9em;
+}
 .computer-score-container, .player-score-container {
     display: grid;
 }

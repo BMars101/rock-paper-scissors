@@ -36,11 +36,8 @@ function computerTurn(){
     }
     computerChoice.textContent = compChoice;   
 }
+
 function checkWinner(){
-   
-}
-function playGame(e){
-    
     if(playScore === 5){
         playScoreText.classList.add('winner');
         playScoreText.textContent = 'Player Wins!';
@@ -53,13 +50,16 @@ function playGame(e){
         playScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    }else {
-        console.log(e.target.textContent, playerPick, compChoice);
+    }
+}
+
+function playGame(e){
         computerTurn();
         playerPick = e.target.innerHTML;
         playerChoice.textContent = playerPick;
-        getResult();  
-    }
+        getResult(); 
+        console.log(e.target.textContent, playerPick, compChoice); 
+        console.log(playScore, compScore);
 }
 
 function getResult(){
@@ -67,16 +67,24 @@ function getResult(){
             case 'RockScissors':
             case 'PaperRock':
             case 'ScissorsPaper':
-                playScore++;
-                playScoreText.textContent = playScore;
-                compScoreText.textContent = compScore;
+                if(playScore === 5) {
+                    checkWinner()
+                } else {
+                    playScore++;
+                    playScoreText.textContent = playScore;
+                    compScoreText.textContent = compScore;
+                }
                 break;
             case 'ScissorsRock':
             case 'RockPaper':
             case 'PaperScissors':
-                compScore++;
-                compScoreText.textContent = compScore;
-                playScoreText.textContent = playScore;
+                if(compScore === 5){
+                    checkWinner()
+                } else {
+                    compScore++;
+                    compScoreText.textContent = compScore;
+                    playScoreText.textContent = playScore;
+                }
                 break;
             case 'PaperPaper':
             case 'RockRock':
