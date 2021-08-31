@@ -37,7 +37,8 @@ function computerTurn(){
     computerChoice.textContent = compChoice;   
 }
 
-function checkWinner(){
+
+function playGame(e){  
     if(playScore === 5){
         playScoreText.classList.add('winner');
         playScoreText.textContent = 'Player Wins!';
@@ -50,15 +51,13 @@ function checkWinner(){
         playScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
+    } else {
+        computerTurn();
+        playerPick = e.target.innerHTML;
+        playerChoice.textContent = playerPick;
+        getResult();  
     }
-}
-
-function playGame(e){  
-    checkWinner();
-    computerTurn();
-    playerPick = e.target.innerHTML;
-    playerChoice.textContent = playerPick;
-    getResult();        
+          
     console.log(e.target.textContent, playerPick, compChoice); 
     console.log(playScore, compScore);
 }
