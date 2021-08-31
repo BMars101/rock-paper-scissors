@@ -50,16 +50,15 @@ function checkWinner(){
         playScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    }else {
-        getResult();
-    } 
+    }
 }
 
-function playGame(e){
+function playGame(e){  
     checkWinner();
     computerTurn();
     playerPick = e.target.innerHTML;
-    playerChoice.textContent = playerPick;        
+    playerChoice.textContent = playerPick;
+    getResult();        
     console.log(e.target.textContent, playerPick, compChoice); 
     console.log(playScore, compScore);
 }
