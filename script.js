@@ -50,41 +50,35 @@ function checkWinner(){
         playScoreText.textContent = '';
         resetBtn.style.display = 'block';
         btnContainer.style.display = "none";
-    }
+    }else {
+        getResult();
+    } 
 }
 
 function playGame(e){
-        computerTurn();
-        playerPick = e.target.innerHTML;
-        playerChoice.textContent = playerPick;
-        getResult(); 
-        console.log(e.target.textContent, playerPick, compChoice); 
-        console.log(playScore, compScore);
+    checkWinner();
+    computerTurn();
+    playerPick = e.target.innerHTML;
+    playerChoice.textContent = playerPick;        
+    console.log(e.target.textContent, playerPick, compChoice); 
+    console.log(playScore, compScore);
 }
 
 function getResult(){
         switch(playerPick + compChoice){
             case 'RockScissors':
             case 'PaperRock':
-            case 'ScissorsPaper':
-                if(playScore === 5) {
-                    checkWinner()
-                } else {
-                    playScore++;
-                    playScoreText.textContent = playScore;
-                    compScoreText.textContent = compScore;
-                }
+            case 'ScissorsPaper':              
+                playScore++;
+                playScoreText.textContent = playScore;
+                compScoreText.textContent = compScore;
                 break;
             case 'ScissorsRock':
             case 'RockPaper':
             case 'PaperScissors':
-                if(compScore === 5){
-                    checkWinner()
-                } else {
-                    compScore++;
-                    compScoreText.textContent = compScore;
-                    playScoreText.textContent = playScore;
-                }
+                compScore++;
+                compScoreText.textContent = compScore;
+                playScoreText.textContent = playScore;
                 break;
             case 'PaperPaper':
             case 'RockRock':
