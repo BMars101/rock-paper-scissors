@@ -37,27 +37,27 @@ function computerTurn(){
     computerChoice.textContent = compChoice;   
 }
 
+function isWinner(){
+    if(playScore === 5){
+         playScoreText.classList.add('winner');
+         playScoreText.textContent = 'Player Wins!';
+         compScoreText.textContent = '';
+         resetBtn.style.display = 'block';
+         btnContainer.style.display = "none";
+     }else if (compScore === 5){
+         compScoreText.classList.add('winner');
+         compScoreText.textContent = 'Computer Wins!';
+         playScoreText.textContent = '';
+         resetBtn.style.display = 'block';
+         btnContainer.style.display = "none";
+     }
+ }
 
 function playGame(e){  
-    if(playScore === 5){
-        playScoreText.classList.add('winner');
-        playScoreText.textContent = 'Player Wins!';
-        compScoreText.textContent = '';
-        resetBtn.style.display = 'block';
-        btnContainer.style.display = "none";
-    }else if (compScore === 5){
-        compScoreText.classList.add('winner');
-        compScoreText.textContent = 'Computer Wins!';
-        playScoreText.textContent = '';
-        resetBtn.style.display = 'block';
-        btnContainer.style.display = "none";
-    } else {
         computerTurn();
         playerPick = e.target.innerHTML;
         playerChoice.textContent = playerPick;
-        getResult();  
-    }
-          
+        getResult();        
     console.log(e.target.textContent, playerPick, compChoice); 
     console.log(playScore, compScore);
 }
@@ -70,6 +70,7 @@ function getResult(){
                 playScore++;
                 playScoreText.textContent = playScore;
                 compScoreText.textContent = compScore;
+                isWinner();
                 break;
             case 'ScissorsRock':
             case 'RockPaper':
@@ -77,6 +78,7 @@ function getResult(){
                 compScore++;
                 compScoreText.textContent = compScore;
                 playScoreText.textContent = playScore;
+                isWinner();
                 break;
             case 'PaperPaper':
             case 'RockRock':
