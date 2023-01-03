@@ -25,13 +25,13 @@ h5 {
     justify-content: center;
 }
 .score, .choice{
-    font-size: 1.9em;
+    font-size: 1.2em;
 }
 .computer-score-container, .player-score-container {
-    display: grid;
+    display: block;
 }
 .Rock, .Paper, .Scissors {
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
     border-style: outset;
     border: 3px solid rgb(235, 235, 30);
@@ -51,11 +51,11 @@ h5 {
 .game-container {
     display: flex;
     justify-content: center;
-    height: 300px;
+    height: 250px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 95%;
 }
 
 .image {
@@ -63,14 +63,14 @@ h5 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 30%;
+    width: 25%;
     border-radius: 50%;
     
 }
 
 .player-container {
-    padding: 20px 60px auto 10px;;
-    margin-right: 120px;
+    padding: 20px 45px auto 10px;;
+    margin-right: 150px;
 }
 .reset-btn {
     display: none;
